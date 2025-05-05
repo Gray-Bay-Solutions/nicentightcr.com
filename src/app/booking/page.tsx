@@ -12,7 +12,7 @@ export default function BookingPage() {
           <div className="relative h-full w-full">
             <Image 
               src="/images/booking-hero.jpg" 
-              alt="Fishing boat ready for departure" 
+              alt="Book your Nosara fishing charter with Nice'n Tight Sportfishing" 
               fill
               priority
               className="object-cover"
@@ -23,10 +23,10 @@ export default function BookingPage() {
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white text-shadow-lg">
-            Book Your Fishing Adventure
+            Book Your Nosara Fishing Adventure
           </h1>
           <p className="text-xl max-w-3xl mx-auto text-white text-shadow">
-            Experience the thrill of Costa Rican waters with Captain Eduardo
+            Experience the thrill of Costa Rican waters with Captain Eduardo - Sailfish, Marlin, Tuna, Roosterfish and more await
           </p>
         </div>
       </section>
@@ -36,8 +36,8 @@ export default function BookingPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
             <SectionHeading 
-              title="Request a Booking"
-              subtitle="Fill out the form below to start planning your fishing adventure"
+              title="Reserve Your Nosara Fishing Charter"
+              subtitle="Fill out the form below to start planning your fishing adventure in Nosara"
             />
             <BookingForm />
           </div>
@@ -45,43 +45,62 @@ export default function BookingPage() {
           <div>
             <div className="sticky top-24">
               <SectionHeading 
-                title="Trip Information"
-                subtitle="Choose from our selection of customized fishing experiences"
+                title="Nosara Fishing Packages"
+                subtitle="Choose from our selection of customized fishing experiences in Nosara, Costa Rica"
               />
               
               <div className="space-y-6">
                 <div className="border border-gray-200 rounded-lg p-6 bg-white shadow-sm">
-                  <h3 className="text-xl font-bold mb-2 text-primary-dark">Inshore Fishing</h3>
+                  <h3 className="text-xl font-bold mb-2 text-primary-dark">Nice&apos;n Tight (24ft) - Versatile Nosara Fishing</h3>
+                  <p className="text-sm mb-4 text-dark">Versatile fishing vessel suitable for both inshore and offshore adventures in Nosara</p>
+                  
+                  <h4 className="font-semibold mb-2 text-primary-dark">Inshore Fishing - Roosterfish, Snapper, Grouper</h4>
                   <ul className="space-y-2 mb-4">
                     <li className="flex justify-between text-dark">
-                      <span>Half Day (4 hours)</span>
+                      <span>Half Day (4-5 hours)</span>
                       <span className="font-bold">$550</span>
                     </li>
                     <li className="flex justify-between text-dark">
-                      <span>Full Day (8 hours)</span>
+                      <span>Full Day (8-9 hours)</span>
                       <span className="font-bold">$950</span>
                     </li>
                   </ul>
-                  <p className="text-medium text-sm">Target species: Snapper, Grouper, Roosterfish, Tuna, Mahi-Mahi</p>
+                  <p className="text-xs text-gray-600 mb-4">Target species: Roosterfish, Snapper, Grouper and other inshore species abundant in Nosara</p>
+                  
+                  <h4 className="font-semibold mb-2 text-primary-dark">Offshore Fishing - Sailfish, Tuna, Mahi-Mahi</h4>
+                  <ul className="space-y-2 mb-4">
+                    <li className="flex justify-between text-dark">
+                      <span>Half Day (4-5 hours)</span>
+                      <span className="font-bold">$650</span>
+                    </li>
+                    <li className="flex justify-between text-dark">
+                      <span>Full Day (8-9 hours)</span>
+                      <span className="font-bold">$1050</span>
+                    </li>
+                  </ul>
+                  <p className="text-xs text-gray-600">Target species: Mahi-Mahi, Tuna, Sailfish and other pelagics found in Nosara&apos;s productive waters</p>
                 </div>
                 
                 <div className="border border-gray-200 rounded-lg p-6 bg-white shadow-sm">
-                  <h3 className="text-xl font-bold mb-2 text-primary-dark">Offshore Fishing</h3>
+                  <h3 className="text-xl font-bold mb-2 text-primary-dark">High Roller (45ft) - Premium Offshore Experience</h3>
+                  <p className="text-sm mb-4 text-dark">Premium offshore fishing vessel for serious anglers seeking trophy catches in Nosara&apos;s deep waters</p>
+                  
+                  <h4 className="font-semibold mb-2 text-primary-dark">Offshore Fishing Only - Marlin, Sailfish, Trophy Catches</h4>
                   <ul className="space-y-2 mb-4">
                     <li className="flex justify-between text-dark">
-                      <span>Half Day (4 hours)</span>
+                      <span>Half Day (4-5 hours)</span>
                       <span className="font-bold">$750</span>
                     </li>
                     <li className="flex justify-between text-dark">
-                      <span>Full Day (8 hours)</span>
-                      <span className="font-bold">$1100</span>
+                      <span>Full Day (8-9 hours)</span>
+                      <span className="font-bold">$1200</span>
                     </li>
                   </ul>
-                  <p className="text-medium text-sm">Target species: Marlin, Sailfish, Wahoo, Big Tuna, Big Mahi-Mahi</p>
+                    <p className="text-xs text-gray-600">Target species: Blue and Black Marlin, Sailfish, Wahoo, Big Yellowfin Tuna, Big Mahi-Mahi in Nosara&apos;s offshore waters</p>
                 </div>
                 
                 <div className="bg-primary-dark text-white rounded-lg p-6">
-                  <h3 className="text-xl font-bold mb-4 text-white">Contact Information</h3>
+                  <h3 className="text-xl font-bold mb-4 text-white">Contact Nosara Fishing Experts</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start">
                       <svg className="h-5 w-5 text-primary-light flex-shrink-0 mr-2 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -110,11 +129,43 @@ export default function BookingPage() {
         </div>
       </Section>
       
+      {/* Nosara Fishing Information */}
+      <Section background="gray">
+        <SectionHeading 
+          title="Why Choose Nosara for Your Fishing Adventure"
+          subtitle="Learn what makes Nosara one of Costa Rica's premier sportfishing destinations"
+          centered
+        />
+        
+        <div className="max-w-4xl mx-auto mt-8 space-y-6">
+          <div className="bg-white p-6 rounded-lg shadow-sm">
+            <h3 className="text-lg font-bold mb-2 text-primary-dark">Year-Round Fishing in Nosara</h3>
+            <p className="text-dark">
+              Nosara offers exceptional fishing opportunities every month of the year. The continental shelf drops off quickly near Nosara, bringing deep water close to shore and creating productive fishing grounds just minutes from the beach. This unique topography attracts a wide variety of game fish throughout the seasons.
+            </p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-sm">
+            <h3 className="text-lg font-bold mb-2 text-primary-dark">Experienced Nosara Fishing Captains</h3>
+            <p className="text-dark">
+              Our captain and crew have spent decades fishing Nosara&apos;s waters. This extensive local knowledge ensures you&apos;ll be taken to the most productive spots based on current conditions, maximizing your chances for an incredible fishing experience whether you&apos;re targeting billfish offshore or roosterfish inshore.
+            </p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-sm">
+            <h3 className="text-lg font-bold mb-2 text-primary-dark">Quality Equipment for Serious Nosara Anglers</h3>
+            <p className="text-dark">
+              We provide top-quality fishing equipment suited to the specific challenges of Nosara&apos;s game fish. From light tackle for inshore species to heavy gear designed to handle powerful offshore predators like marlin and tuna, you&apos;ll be well-equipped for success on the water.
+            </p>
+          </div>
+        </div>
+      </Section>
+      
       {/* FAQ Section */}
       <Section background="gray">
         <SectionHeading 
-          title="Frequently Asked Questions"
-          subtitle="Find answers to common questions about our fishing trips"
+          title="Frequently Asked Questions About Fishing Trips in Nosara"
+          subtitle="Find answers to common questions about our Nosara fishing charters"
           centered
         />
         

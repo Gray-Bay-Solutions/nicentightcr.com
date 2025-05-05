@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import Button from "./Button";
 
 export default function BookingForm() {
@@ -9,16 +9,46 @@ export default function BookingForm() {
     email: "",
     phone: "",
     date: "",
-    tripType: "inshore-half",
+    boat: "nicen-tight",
+    tripType: "inshore",
+    duration: "half-day",
     message: "",
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<null | "success" | "error">(null);
 
+  // Calculate estimated price based on selections
+  const [estimatedPrice, setEstimatedPrice] = useState("$550");
+  
+  useEffect(() => {
+    // Price calculation logic
+    let price = 0;
+    
+    if (formData.boat === "high-roller") {
+      // High Roller is offshore only
+      price = formData.duration === "half-day" ? 750 : 1200;
+    } else {
+      // Nice'n Tight can do both inshore and offshore
+      if (formData.tripType === "inshore") {
+        price = formData.duration === "half-day" ? 550 : 950;
+      } else {
+        // Offshore on Nice'n Tight
+        price = formData.duration === "half-day" ? 650 : 1050;
+      }
+    }
+    
+    setEstimatedPrice(`$${price}`);
+  }, [formData.boat, formData.tripType, formData.duration]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    
+    // Reset trip type if High Roller is selected (offshore only)
+    if (name === "boat" && value === "high-roller") {
+      setFormData(prev => ({ ...prev, tripType: "offshore" }));
+    }
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -38,7 +68,9 @@ export default function BookingForm() {
         email: "",
         phone: "",
         date: "",
-        tripType: "inshore-half",
+        boat: "nicen-tight",
+        tripType: "inshore",
+        duration: "half-day",
         message: "",
       });
     } catch (error) {
@@ -112,23 +144,67 @@ export default function BookingForm() {
         </div>
       </div>
       
-      <div>
-        <label htmlFor="tripType" className="block text-sm font-medium text-dark mb-1">
-          Trip Type
-        </label>
-        <select
-          id="tripType"
-          name="tripType"
-          required
-          className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
-          value={formData.tripType}
-          onChange={handleChange}
-        >
-          <option value="inshore-half">Inshore - Half Day ($550)</option>
-          <option value="inshore-full">Inshore - Full Day ($750)</option>
-          <option value="offshore-half">Offshore - Half Day ($750)</option>
-          <option value="offshore-full">Offshore - Full Day ($950)</option>
-        </select>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label htmlFor="boat" className="block text-sm font-medium text-dark mb-1">
+            Select Boat
+          </label>
+          <select
+            id="boat"
+            name="boat"
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+            value={formData.boat}
+            onChange={handleChange}
+          >
+            <option value="nicen-tight">Nice&apos;n Tight (24ft)</option>
+            <option value="high-roller">High Roller (45ft)</option>
+          </select>
+        </div>
+        
+        <div>
+          <label htmlFor="tripType" className="block text-sm font-medium text-dark mb-1">
+            Trip Type
+          </label>
+          <select
+            id="tripType"
+            name="tripType"
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+            value={formData.tripType}
+            onChange={handleChange}
+            disabled={formData.boat === "high-roller"}
+          >
+            <option value="inshore" disabled={formData.boat === "high-roller"}>Inshore</option>
+            <option value="offshore">Offshore</option>
+          </select>
+        </div>
+        
+        <div>
+          <label htmlFor="duration" className="block text-sm font-medium text-dark mb-1">
+            Duration
+          </label>
+          <select
+            id="duration"
+            name="duration"
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+            value={formData.duration}
+            onChange={handleChange}
+          >
+            <option value="half-day">Half Day (4-5 hours)</option>
+            <option value="full-day">Full Day (8-9 hours)</option>
+          </select>
+        </div>
+      </div>
+      
+      <div className="bg-blue-50 p-4 rounded-md">
+        <p className="text-primary-dark">
+          <strong>Estimated Price:</strong> {estimatedPrice}
+        </p>
+        <p className="text-sm text-gray-600 mt-1">
+          Final price may vary based on special requests and season.
+        </p>
       </div>
       
       <div>
