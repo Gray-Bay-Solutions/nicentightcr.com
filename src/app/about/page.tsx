@@ -69,7 +69,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="relative h-[400px] rounded-lg overflow-hidden">
               <Image 
-                src="/images/boat.jpg" 
+                src="/images/high-roller.jpg" 
                 alt="High Roller offshore fishing boat" 
                 fill
                 className="object-cover"
@@ -118,7 +118,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="relative h-[400px] rounded-lg overflow-hidden order-1 lg:order-2">
               <Image 
-                src="/images/boat.jpg" 
+                src="/images/nicentight.jpg" 
                 alt="Nice'n Tight fishing boat" 
                 fill
                 className="object-cover"

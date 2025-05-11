@@ -36,9 +36,9 @@ export default function Navigation() {
             <Link href="/about" className="text-dark hover:text-primary font-medium">
               About
             </Link>
-            <Link href="/gallery" className="text-dark hover:text-primary font-medium">
+            {/* <Link href="/gallery" className="text-dark hover:text-primary font-medium">
               Gallery
-            </Link>
+            </Link> */}
             <Link href="/booking" className="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-md font-medium">
               Book Now
             </Link>
@@ -82,13 +82,13 @@ export default function Navigation() {
             >
               About
             </Link>
-            <Link 
+            {/* <Link 
               href="/gallery" 
               className="block px-3 py-2 text-dark hover:text-primary font-medium"
               onClick={() => setMobileMenuOpen(false)}
             >
               Gallery
-            </Link>
+            </Link> */}
             <Link 
               href="/booking" 
               className="block px-3 py-2 bg-primary hover:bg-primary-dark text-white rounded-md font-medium"
