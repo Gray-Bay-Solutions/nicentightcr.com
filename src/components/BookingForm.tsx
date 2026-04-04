@@ -56,11 +56,13 @@ export default function BookingForm() {
     setIsSubmitting(true);
     setSubmitStatus(null);
     
-    // In a production app, this would send the data to your server
-    // For now, let's simulate a successful submission after a delay
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      console.log("Form submitted:", formData);
+      const res = await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error(await res.text());
       setSubmitStatus("success");
       // Reset form
       setFormData({
@@ -222,10 +224,11 @@ export default function BookingForm() {
       </div>
       
       <div>
-        <Button 
-          className={`w-full ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className={`w-full ${isSubmitting ? "opacity-70 cursor-not-allowed" : ""}`}
           variant="primary"
-          onClick={handleSubmit as any}
         >
           {isSubmitting ? "Sending..." : "Request Booking"}
         </Button>
