@@ -14,7 +14,7 @@ export default function Footer() {
     "description": "Premier sportfishing charter service in Nosara, Costa Rica offering inshore and offshore fishing trips for Sailfish, Marlin, Tuna, Roosterfish and more.",
     "image": "https://nicentightcr.com/images/logo.png",
     "url": "https://nicentightcr.com",
-    "telephone": "+5068888888", 
+    "telephone": "+50683590691", 
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Playa Garza, Nosara",
@@ -58,7 +58,7 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4 text-white">Nice&apos;n Tight Sportfishing</h3>
             <p className="mb-2 text-white">Playa Garza, Nosara</p>
             <p className="mb-2 text-white">Guanacaste, Costa Rica</p>
-            <p className="mb-2 text-white">WhatsApp: +506 8888-8888</p>
+            <p className="mb-2 text-white">WhatsApp: +506 8359-0691</p>
           </div>
           
           <div>
