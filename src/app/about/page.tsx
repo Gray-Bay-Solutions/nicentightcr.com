@@ -1,7 +1,19 @@
+import type { Metadata } from 'next';
 import Image from "next/image";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import Button from "@/components/Button";
+import { createPageMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = createPageMetadata({
+  title: "About Captain Eduardo | Nice'n Tight Sportfishing Nosara",
+  description:
+    "Meet Captain Eduardo Carrillo and our sportfishing fleet in Playa Garza, Nosara. Decades of local expertise, two custom boats, and all-inclusive Costa Rica fishing charters.",
+  path: '/about',
+  keywords: ['Captain Eduardo Nosara', 'Nice\'n Tight Sportfishing', 'Playa Garza fishing', 'Nosara fishing boats'],
+  ogImage: '/images/about-hero.jpg',
+  ogImageAlt: 'Nice\'n Tight Sportfishing boats in Nosara, Costa Rica',
+});
 
 export default function AboutPage() {
   return (
@@ -21,8 +33,8 @@ export default function AboutPage() {
           </div>
         </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white text-shadow-lg">
+        <div className="page-hero relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="max-w-3xl text-4xl md:text-5xl font-bold mb-4 text-shadow-lg">
             About Nice&apos;n Tight Sportfishing in Nosara
           </h1>
         </div>

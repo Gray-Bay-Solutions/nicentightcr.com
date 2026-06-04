@@ -14,9 +14,11 @@ export default function GalleryItem({ src, alt, className = "" }: GalleryItemPro
 
   return (
     <>
-      <div
-        className={`relative overflow-hidden rounded-lg cursor-pointer group ${className}`}
+      <button
+        type="button"
+        className={`relative block min-h-[220px] w-full overflow-hidden rounded-lg cursor-pointer group text-left ${className}`}
         onClick={() => setIsOpen(true)}
+        aria-label={`View larger: ${alt}`}
       >
         <div className="aspect-w-4 aspect-h-3 w-full">
           <Image
@@ -30,14 +32,23 @@ export default function GalleryItem({ src, alt, className = "" }: GalleryItemPro
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
           <span className="text-white font-medium text-shadow">{alt}</span>
         </div>
-      </div>
+      </button>
 
       {isOpen && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" onClick={() => setIsOpen(false)}>
+        <div
+          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label={alt}
+          onClick={() => setIsOpen(false)}
+          onKeyDown={(e) => e.key === 'Escape' && setIsOpen(false)}
+        >
           <div className="relative max-w-screen-lg max-h-screen" onClick={(e) => e.stopPropagation()}>
-            <button 
+            <button
+              type="button"
               className="absolute top-2 right-2 z-10 p-1 rounded-full bg-black/50 text-white hover:bg-black/70"
               onClick={() => setIsOpen(false)}
+              aria-label="Close image viewer"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

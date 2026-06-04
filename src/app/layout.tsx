@@ -3,7 +3,8 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from "next/font/google";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
+import { SITE_URL } from '@/lib/seo';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +17,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Nice\'n Tight Sportfishing | Premier Fishing Charters in Nosara, Costa Rica',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: 'Nice\'n Tight Sportfishing | Premier Fishing Charters in Nosara, Costa Rica',
+    template: '%s | Nice\'n Tight Sportfishing',
+  },
   description: 'Experience world-class fishing in Nosara, Costa Rica with Nice\'n Tight Sportfishing. Book offshore and inshore fishing charters for Sailfish, Marlin, Tuna, Roosterfish and more. Expert captains, top equipment, and memorable adventures.',
   keywords: 'Nosara fishing, fishing Nosara, Nosara Costa Rica fishing, Nosara fishing charters, sportfishing Nosara, sailfish Nosara, marlin Nosara, tuna fishing Nosara, inshore fishing Nosara, offshore fishing Nosara, fishing guide Nosara, Guanacaste fishing, Costa Rica fishing trips, Playa Garza fishing',
   openGraph: {
@@ -56,10 +61,19 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
+      >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-white"
+        >
+          Skip to main content
+        </a>
         <Navigation />
-        <main className="min-h-screen">{children}</main>
+        <main id="main-content" className="min-h-screen">{children}</main>
         <Footer />
         <Analytics />
       </body>

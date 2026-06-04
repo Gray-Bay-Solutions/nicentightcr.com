@@ -1,7 +1,19 @@
+import type { Metadata } from 'next';
 import Image from "next/image";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import GalleryItem from "@/components/GalleryItem";
+import { createPageMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Fishing Photo Gallery | Nice\'n Tight Sportfishing Nosara',
+  description:
+    'Browse marlin, sailfish, tuna, mahi-mahi, and roosterfish photos from Nice\'n Tight Sportfishing charters in Nosara, Costa Rica.',
+  path: '/gallery',
+  keywords: ['Nosara fishing photos', 'Costa Rica sportfishing gallery', 'marlin photos Nosara'],
+  ogImage: '/images/gallery-hero.jpg',
+  ogImageAlt: 'Sport fishing action in Nosara, Costa Rica',
+});
 
 // We'll organize gallery photos by categories
 const galleryItems = {
@@ -58,11 +70,11 @@ export default function GalleryPage() {
           </div>
         </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white text-shadow-lg">
+        <div className="page-hero relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="max-w-3xl text-4xl md:text-5xl font-bold mb-4 text-shadow-lg">
             Our Fishing Gallery
           </h1>
-          <p className="text-xl max-w-3xl mx-auto text-white text-shadow">
+          <p className="max-w-2xl text-xl text-shadow">
             See the excitement and beauty of sport fishing in Nosara, Costa Rica
           </p>
         </div>

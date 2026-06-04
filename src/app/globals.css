@@ -78,9 +78,51 @@ h4 {
 }
 
 p {
-  color: var(--text-dark);
   line-height: 1.6;
   margin-bottom: 1rem;
+}
+
+/* Light text on photos/video — overrides global p/h colors */
+.page-hero h1,
+.page-hero h2,
+.page-hero p,
+.card-overlay h3,
+.card-overlay p,
+.card-overlay span {
+  color: #ffffff;
+}
+
+.page-hero h1 {
+  margin-bottom: 0.75rem;
+}
+
+.page-hero p {
+  opacity: 0.92;
+  margin-bottom: 0;
+}
+
+.card-overlay p {
+  margin-bottom: 0.25rem;
+}
+
+.card-overlay .card-muted {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Nav controls keep link color (buttons default to black in some browsers) */
+.nav-link {
+  color: #1f2937;
+  font-size: 15px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link[aria-expanded="true"] {
+  color: var(--primary);
 }
 
 .text-medium {
@@ -118,6 +160,67 @@ a:hover {
   color: var(--primary-dark);
 }
 
+/* Footer — keep links white on dark background */
+.site-footer {
+  background-color: var(--primary-dark);
+  color: #ffffff;
+}
+
+.site-footer .footer-heading {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.site-footer .footer-brand {
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.site-footer .footer-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin-bottom: 0.35rem;
+}
+
+.site-footer a.footer-link {
+  color: #ffffff !important;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  display: inline-block;
+}
+
+.site-footer a.footer-link:hover {
+  color: var(--primary-light) !important;
+}
+
+.site-footer a.footer-cta {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.375rem;
+  background-color: var(--primary);
+  color: #ffffff !important;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.site-footer a.footer-cta:hover {
+  background-color: var(--primary-light);
+  color: #ffffff !important;
+}
+
+.site-footer .footer-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
 button, 
 .button {
   cursor: pointer;
@@ -132,16 +235,22 @@ button:disabled,
 
 /* Button variants */
 .btn-primary {
+  display: inline-block;
   background-color: var(--primary);
-  color: var(--white);
+  color: var(--white) !important;
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.875rem 2rem;
   border-radius: 0.375rem;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1.0625rem;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
 }
 
-.btn-primary:hover {
+a.btn-primary:hover {
   background-color: var(--primary-dark);
+  color: var(--white) !important;
 }
 
 .btn-secondary {

@@ -1,7 +1,19 @@
+import type { Metadata } from 'next';
 import Image from "next/image";
 import Section from "@/components/Section";
 import SectionHeading from "@/components/SectionHeading";
 import BookingForm from "@/components/BookingForm";
+import { createPageMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Book a Nosara Fishing Charter | Nice\'n Tight Sportfishing',
+  description:
+    'Reserve your inshore or offshore fishing charter in Nosara, Costa Rica. View packages, pricing, and contact Captain Eduardo at Playa Garza.',
+  path: '/booking',
+  keywords: ['book Nosara fishing charter', 'Nosara fishing reservation', 'Playa Garza charter booking'],
+  ogImage: '/images/booking-hero.jpg',
+  ogImageAlt: 'Book your Nosara fishing charter with Nice\'n Tight Sportfishing',
+});
 
 export default function BookingPage() {
   return (
@@ -21,11 +33,11 @@ export default function BookingPage() {
           </div>
         </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white text-shadow-lg">
+        <div className="page-hero relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="max-w-3xl text-4xl md:text-5xl font-bold mb-4 text-shadow-lg">
             Book Your Nosara Fishing Adventure
           </h1>
-          <p className="text-xl max-w-3xl mx-auto text-white text-shadow">
+          <p className="max-w-2xl text-xl text-shadow">
             Experience the thrill of Costa Rican waters with Captain Eduardo - Sailfish, Marlin, Tuna, Roosterfish and more await
           </p>
         </div>
